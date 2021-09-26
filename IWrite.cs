@@ -2,6 +2,6 @@
 {
     interface IWrite
     {
-        void Write(string text);
+        void Write();
     }
 }

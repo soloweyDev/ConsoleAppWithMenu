@@ -4,10 +4,20 @@ namespace ConsoleAppWithMenu
 {
     public class Top : IWrite
     {
-        public void Write(string text)
+        readonly string[] _text;
+
+        public Top(string[] text)
         {
-            Console.SetCursorPosition(0, 0);
-            Console.Write(text);
+            _text = text;
+        }
+
+        public void Write()
+        {
+            foreach (string line in _text)
+            {
+                Console.SetCursorPosition(0, 0);
+                Console.Write(line);
+            }
         }
     }
 }
