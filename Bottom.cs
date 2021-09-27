@@ -17,14 +17,14 @@ namespace ConsoleAppWithMenu
             ++_position;
             if (_position == _text.Length)
             {
-                _position = 2;
+                _position = 0;
             }
         }
 
         public void Previous()
         {
             --_position;
-            if (_position < 2)
+            if (_position < 0)
             {
                 _position = _text.Length - 1;
             }
@@ -43,8 +43,17 @@ namespace ConsoleAppWithMenu
             for (int i = 0; i < _text.Length; ++i)
             {
                 Console.SetCursorPosition(position, 29);
+                if (i == _position)
+                {
+                    // цвет текста
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    // цвет под текстом
+                    Console.BackgroundColor = ConsoleColor.White;
+                }
                 Console.Write(_text[i].ToUpper());
                 position += _text[i].Length + step;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
             }
         }
     }
