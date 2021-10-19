@@ -13,10 +13,12 @@ namespace ConsoleAppWithMenu
 
         public void Write()
         {
+            int top = 0;
             foreach (string line in _text)
             {
-                Console.SetCursorPosition(0, 0);
+                Console.SetCursorPosition(0, top);
                 Console.Write(line);
+                top += 1;
             }
         }
     }
